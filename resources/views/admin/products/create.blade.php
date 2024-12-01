@@ -4,7 +4,7 @@
         <div class="container-fluid my-2">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Create Product</h1>
+                    <h1>Create Cattle</h1>
                 </div>
                 <div class="col-sm-6 text-right">
                     <a href="{{route('products.index')}}" class="btn btn-primary">Back</a>
@@ -206,7 +206,7 @@
                             <h2 class="h4 mb-3">Enable Variation</h2>
                             <div class="mb-3">
 
-                               
+
                                     <div class="">
                                         <input checked type="radio" name="payment_method" value="cod" id="payment_method_one">
                                         <label for="payment_method_one" class="form-check-label">No</label>
@@ -217,24 +217,24 @@
                                     </div>
                                     <div class="card-body p-0 d-none" id="card-payment-form">
                                         <div class="mb-3">
-                                            
+
                                             <button type="submit" class="btn btn-primary">Add Variation</button>
-                                            
+
                                         </div>
-                                        
+
                                             {{-- <div class="col-md-6">
                                                 <label for="expiry_date" class="mb-2">Expiry Date</label>
                                                 <input type="text" name="expiry_date" id="expiry_date" placeholder="MM/YYYY" class="form-control">
                                             </div> --}}
-                                            
+
                                     </div>
 
-                               
+
                             </div>
                         </div>
                     </div>
-                  
-               
+
+
                     <div class="card mb-3">
                         <div class="card-body">
                             <h2 class="h4 mb-3">Related Products</h2>
@@ -272,7 +272,7 @@
         if($(this).is(":checked") == true){
             $("#card-payment-form").removeClass('d-none')
         }
-    });    
+    });
 
 
  $('.related-product').select2({
