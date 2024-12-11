@@ -175,6 +175,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Yoeunes\Toastr\ToastrServiceProvider::class,
+        App\Providers\ShurjopayProvider::class,
 
     ])->toArray(),
 

@@ -7,7 +7,7 @@
     top: -10px; /* Adjust this value to position the badge vertically */
     right: -10px; /* Adjust this value to position the badge horizontally */
     border-radius: 50%; /* Makes it a circle */
-    background-color: #2AADB2; /* Background color of the badge */
+    background-color: #F68712; /* Background color of the badge */
     color: #ffffff; /* Text color of the badge */
     padding: 5px 10px; /* Adjust padding to change the size of the badge */
     font-size: 12px; /* Adjust font size as needed */
@@ -41,7 +41,7 @@ p.color-text, p.size-text {
     display: table-cell;
 }
 .bg-green{
-    background-color:#2AADB2  !important
+    background-color:#00FF00  !important
 }
 
 /* nav up */
@@ -52,7 +52,7 @@ p.color-text, p.size-text {
 	padding: 0 !important;
 }
 .navbars {
-	background: #2AADB2;
+	background: #01521A;
 	padding-left: 16px;
 	padding-right: 16px;
 	border-bottom: 1px solid #d6d6d6;
@@ -307,14 +307,14 @@ p.color-text, p.size-text {
 /*  */
 
 .section-11 .nav-item .nav-link:hover {
-    background-color: #2AADB2 !important;
+    background-color: #4CAF50 !important;
     color: #FFF;
 }
 
 .nav-icons:hover {
     transform: scale(1.1); /* Increase the size on hover (adjust as needed) */
     transition: transform 0.3s ease; /* Add a smooth transition effect */
-    fill: #2AADB2 !important;
+    fill: #4CAF50 !important;
 }
 
 
@@ -417,3 +417,127 @@ p.color-text, p.size-text {
   font-weight: 700;
   margin-bottom: 10px
 }
+
+/* footer */
+
+/* styles.css */
+.footer {
+    background-color: #404A3D;
+    color: #ccc;
+    padding: 30px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer .footer-card {
+    margin-bottom: 30px;
+}
+
+.footer .footer-card h3 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.footer .footer-card p,
+.footer .footer-card ul,
+.footer .footer-card a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer .footer-card ul {
+    list-style: none;
+
+}
+
+.footer .footer-card ul li {
+    margin-bottom: 10px;
+}
+
+.footer .footer-card ul li a:hover {
+    color: #F1471D;
+}
+
+.footer .logo img {
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+.footer .description {
+    margin-top: 15px;
+    color: #ccc;
+}
+
+.footer .social-icons {
+    list-style: none;
+    /* padding: 0; */
+    margin: 20px 0;
+    text-align: center;
+    background-color: #ffff;
+    /* padding: 10px; */
+    padding-top: 15px;
+    border-radius: 10px;
+    width: 304px;
+}
+
+.footer .social-icons li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.footer .social-icons li a {
+    color: #000000;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+/* .footer .social-icons li a:hover {
+    color: #e69a0f;
+} */
+
+.footer .footer-bottom {
+    background-color: #222;
+    padding: 10px 0;
+}
+
+.footer .footer-bottom p {
+    margin: 0;
+    color: #ccc;
+}
+
+.footer .footer-bottom a {
+    color: #ffa500;
+    text-decoration: none;
+}
+
+.footer .footer-bottom a:hover {
+    color: #fff;
+}
+
+.footer form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.footer form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #01521A;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.footer form button:hover {
+    background-color: #ff8c00;
+}
+
+.text-center {
+    text-align: center;
+}
+
+

@@ -127,16 +127,16 @@
                             $product->product_ratings_count.' Review' }})</small>
                     </div>
                     @if ($product->compare_price != Null)
-                        <h2 class="price-compare text-danger "><del>৳{{ $product->compare_price }}</del></h2>
+                        <h2 class="price-compare text-danger "><del>£{{ $product->compare_price }}</del></h2>
                     @endif
                     @if($product->price != 0)
-                        <h2 class="price ">৳{{ $product->price }}</h2>
+                        <h2 class="price ">£{{ $product->price }}</h2>
                     @endif
                     @if ($product->product_items->isNotEmpty() && $product->has_variation == 1)
                         @if ($product->product_items[0]->compare_price != null)
-                            <h2 class="priceItem text-secondary text-secondary-item" id="comparePrice_{{ $product->product_items[0]->id }}"><del>৳{{ $product->product_items[0]->compare_price }}</del></h2>
+                            <h2 class="priceItem text-secondary text-secondary-item" id="comparePrice_{{ $product->product_items[0]->id }}"><del>£{{ $product->product_items[0]->compare_price }}</del></h2>
                         @endif
-                        <h2 class="priceItem" id="priceItem_{{ $product->product_items[0]->id }}">৳{{ $product->product_items[0]->price }}</h2>
+                        <h2 class="priceItem" id="priceItem_{{ $product->product_items[0]->id }}">£{{ $product->product_items[0]->price }}</h2>
 
                     @endif
 
@@ -411,9 +411,9 @@
                                 <div class="card-body text-center mt-3">
                                     <a class="h6 link" href="">{{ $relProduct->title }}</a>
                                     <div class="price mt-2">
-                                        <span class="h5"><strong>৳{{ $relProduct->price }}</strong></span>
+                                        <span class="h5"><strong>£{{ $relProduct->price }}</strong></span>
                                         @if ($relProduct->compare_price > 0)
-                                            <span class="h6 text-underline"><del>৳{{ $relProduct->compare_price }}</del></span>
+                                            <span class="h6 text-underline"><del>£{{ $relProduct->compare_price }}</del></span>
                                         @endif
                                     </div>
                                 </div>
@@ -485,11 +485,11 @@
             // Function to update displayed prices and image
             function updatePrices(price, comparePrice, image) {
                 // Update displayed regular price
-                $('#priceItem_' + productItems[0].id).html('৳' + price);
+                $('#priceItem_' + productItems[0].id).html('£' + price);
 
                 // Update displayed compare prices if available
                 if (comparePrice !== null) {
-                    $('#comparePrice_' + productItems[0].id).html('<del>৳' + comparePrice + '</del>').show();
+                    $('#comparePrice_' + productItems[0].id).html('<del>£' + comparePrice + '</del>').show();
                 } else {
                     $('#comparePrice_' + productItems[0].id).hide();
                 }

@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-3 sidebar">
                 <div class="sub-title">
-                    <h2>Categories</h2>
+                    <h2>Breed</h2>
                 </div>
 
                 <div class="card">
@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="sub-title mt-5">
-                    <h2>Brand</h2>
+                    <h2>Teeth</h2>
                 </div>
 
                 <!-- brand section -->
@@ -175,14 +175,14 @@
                                         @php
                                             $item = $product->product_items->first();
                                         @endphp
-                                        <span class="h5"><strong>৳{{ $item->price }}</strong></span>
+                                        <span class="h5"><strong>£{{ $item->price }}</strong></span>
                                         @if ($item->compare_price > 0)
-                                            <span class="h6 text-underline"><del>৳{{ $item->compare_price }}</del></span>
+                                            <span class="h6 text-underline"><del>£{{ $item->compare_price }}</del></span>
                                         @endif
                                     @else
-                                        <span class="h5"><strong>৳{{$product->price}}</strong></span>
+                                        <span class="h5"><strong>£{{$product->price}}</strong></span>
                                         @if($product->compare_price > 0)
-                                            <span class="h6 text-underline"><del>৳{{$product->compare_price}}</del></span>
+                                            <span class="h6 text-underline"><del>£{{$product->compare_price}}</del></span>
                                         @endif
                                     @endif
 
@@ -213,7 +213,7 @@
         step: 10,
         skin: "round",
         max_postfix: "+",
-        prefix: "৳",
+        prefix: "£",
         onFinish: function() {
             apply_filters();
         }

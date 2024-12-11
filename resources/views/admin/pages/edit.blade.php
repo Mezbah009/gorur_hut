@@ -41,7 +41,7 @@
 
                    
  
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="mb-3">
                             <label for="slug">Content</label>
                             <textarea name="content" id="content" class="summernote" cols="30" rows="10" >{{$pages->content}}</textarea>
@@ -57,7 +57,7 @@
             <button type="submit" class="btn btn-primary" >Update</button>
             <a href="{{route('pages.create')}}" class="btn btn-outline-dark ml-3">Cancel</a>
         </div>
-    </div>
+
 </form>
 
     <!-- /.card -->

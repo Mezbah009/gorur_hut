@@ -24,7 +24,7 @@ class CartController extends Controller
 {
     public function addToCart(Request $request){
 
-        $product = Product::with(['product_images'])->find($request->id);
+        $product = Product::with('product_images')->find($request->id);
 
         if ($product == null){
             return response()->json([
@@ -35,7 +35,7 @@ class CartController extends Controller
 
             if (Cart::count() > 0){
                 $cartContent = Cart::content();
-               // dd($cartContent);
+                //dd($cartContent);
                 $productAlreadyExist = false;
                 foreach ($cartContent as $item){
                     //dd($item);
@@ -78,83 +78,37 @@ class CartController extends Controller
                 'cartContent' => $cartContentWithSku
             ]);
 
-    }
+        //  dd(Cart::content());
 
+    }
     public function addItemToCart(Request $request)
     {
-        if($request->input('product-item-id') != null){
+        $product = ProductItem::with('product')->find($request->input('product-item-id'));
+        dd($product);
 
-            $product = ProductItem::with('product')->find($request->input('product-item-id'));
-        }
-    else{
-            $product = ProductItem::with('product')->find($request->id);
-        }
-
-        if ($product) {
-            if (Cart::count() > 0) {
-                $cartContent = Cart::content();
-                $productAlreadyExist = false;
-
-                foreach ($cartContent as $item) {
-                    if ($item->productItemId == $product->id) {
-                        $productAlreadyExist = true;
-                        break;
-                    }
-                }
-
-                if (!$productAlreadyExist) {
-                    // Accessing the 'product' relationship
-                    Cart::add($product->product->id, $product->product->title, 1, $product->price, [
-                        'productItemId' => $product->id,
-                        'productSku' => $product->sku,
-                        'productImage' => $product->image,
-                        'productVariationColor' => $product->variation_color,
-                        'productVariationSize' => $product->variation_size,
-                        'productItemQty' => $product->qty,
-                    ]);
-
-                    $status = true;
-                    $message = $product->product->title . ' added in your cart successfully';
-                    session()->flash('success', $message);
-                } else {
-                    $status = false;
-                    $message = $product->product->title . ' already added in cart';
-
-                }
-            } else {
-                // Accessing the 'product' relationship
-                Cart::add($product->product->id, $product->product->title, 1, $product->price, [
-                    'productItemId' => $product->id,
-                    'productSku' => $product->sku,
-                    'productImage' => $product->image,
-                    'productVariationColor' => $product->variation_color,
-                    'productItemQty' => $product->qty,
-                ]);
-
-                $status = true;
-                $message = $product->product->title . ' added in your cart successfully';
-                session()->flash('success', $message);
-            }
-
+        if ($product == null) {
+            $status = false;
+            $message = 'Record not found';
+            session()->flash('success', $message);
         } else {
-            // Product item not found
-            return response()->json([
-                'status' => false,
-                'message' => 'Product item not found',
-                'cartContent' => null,
+            Cart::add($product->id, $product->product->title, 1, $product->price, [
+                'productSku' => $product->sku,
+                'productImage' => $product->image,
+                'productVariation' => $product->variation
             ]);
+            $status = true;
+            $message = $product->product->title.' added to your cart successfully';
+            session()->flash('success', $message);
         }
 
         $cartContentItem = Cart::content()->map(function ($item) {
             $item->sku = $item->options['productSku'] ?? null;
             $item->image = $item->options['productImage'] ?? null;
-            $item->variationColor = $item->options['productVariationColor'] ?? null;
-            $item->variationSize = $item->options['productVariationSize'] ?? null;
-            $item->productItemId = $item->options['productItemId'] ?? null;
-            $item->productItemQty = $item->options['productItemQty'] ?? null;
+            $item->variation = $item->options['productVariation'] ?? null;
             return $item;
         });
 
+        // dd($cartContentItem);
         return response()->json([
             'status' => $status,
             'message' => $message,
@@ -167,12 +121,7 @@ class CartController extends Controller
 
     $cartContent = (Cart::content());
     $data['cartContent'] = $cartContent;
-    //dd($data);
-    if(request()->wantsJson()){
-        return response()->json([
-            "data" =>$cartContent
-        ]);
-    }
+    // dd($data);
         return view ('front.cart', $data);
     }
 
@@ -180,38 +129,18 @@ class CartController extends Controller
         $rowId = $request->rowId;
         $qty = $request->qty;
         $itemInfo = Cart::get($rowId);
-
         $product = Product::find($itemInfo->id);
 
-        //check product item qty
-        if($product->has_variation == 1){
-
-            $productItem = ProductItem::with('product')->where('id', $itemInfo->productItemId)->first();
-
-            if ($qty <= $productItem->qty){
-                Cart::update($rowId, $qty);
-                $message = 'Cart updated successfully';
-                $request->session()->flash('success', $message);
-                $status = true;
-            }
-            else {
-
-                $message = 'Request qty('.$qty.') not available in stock';
-                $status = false;
-                $request->session()->flash('error', $message);
-            }
-        }else{
-            // Check if the product is in stock
-            if ($product->track_qty == "Yes" && $qty <= $product->qty) {
-                Cart::update($rowId, $qty);
-                $message = 'Cart updated successfully';
-                $request->session()->flash('success', $message);
-                $status = true;
-            } else {
-                $message = 'Request qty('.$qty.') not available in stock';
-                $status = false;
-                $request->session()->flash('error', $message);
-            }
+        // Check if the product is in stock
+        if ($product->track_qty == "Yes" && $qty <= $product->qty) {
+            Cart::update($rowId, $qty);
+            $message = 'Cart updated successfully';
+            $request->session()->flash('success', $message);
+            $status = true;
+        } else {
+            $message = 'Request qty('.$qty.') not available in stock';
+            $status = false;
+            $request->session()->flash('error', $message);
         }
 
         return response()->json([
@@ -383,7 +312,6 @@ class CartController extends Controller
             $totalQty = 1;
             $totalWeight=0;
             $product_id=[];
-
             foreach(Cart::content() as $item){
              $product_id[] = $item->id;
             }
@@ -441,7 +369,6 @@ class CartController extends Controller
             foreach (Cart::content() as $key => $item){
                 $orderItem = new OrderItem();
                 $orderItem->product_id = $item->id;
-                $orderItem->product_item_id = $item->productItemId;
                 $orderItem->order_id = $order->id;
                 $orderItem->name = $item->name;
                 $orderItem->price = $item->price;

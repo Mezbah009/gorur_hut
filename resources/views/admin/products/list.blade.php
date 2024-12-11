@@ -4,10 +4,10 @@
         <div class="container-fluid my-2">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Cattle</h1>
+                    <h1>Product</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{route('products.create')}}" class="btn btn-primary">New Cattle</a>
+                    <a href="{{route('products.create')}}" class="btn btn-primary">New Product</a>
                 </div>
             </div>
         </div>

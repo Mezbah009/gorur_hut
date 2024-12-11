@@ -82,7 +82,7 @@
 
                                             </div>
                                         </td>
-                                        <td>৳{{$item->price}}</td>
+                                        <td>£{{$item->price}}</td>
                                         <td>
                                             @if(isset($item->productItemQty))
                                                 <div class="input-group quantity mx-auto" style="width: 100px;">
@@ -114,7 +114,7 @@
                                                 </div>
                                             @endif
                                         </td>
-                                        <td>৳{{ $item->price * $item->qty }}</td>
+                                        <td>£{{ $item->price * $item->qty }}</td>
                                             <td>
                                                 <button class="btn btn-sm btn-danger" onclick="deleteItem('{{$item->rowId}}')"><i class="fa fa-times"></i></button>
                                             </td>
@@ -133,11 +133,11 @@
                                 </div>
                                 <div class="d-flex justify-content-between pb-2">
                                     <div>Subtotal</div>
-                                    <div>৳{{Cart::subTotal()}}</div>
+                                    <div>£{{Cart::subTotal()}}</div>
                                 </div>
                                 <div class="d-flex justify-content-between summery-end">
                                     <div class="h6"><strong>Discount</strong></div>
-                                    <div class="h6"><strong id="discount_value" name="discount_value" >৳{{$discount }}</strong></div>
+                                    <div class="h6"><strong id="discount_value" name="discount_value" >£{{$discount }}</strong></div>
                                 </div>
 
                                 <div class="pt-2">
@@ -235,9 +235,9 @@
         dataType: 'json',
         success: function (response) {
             if (response.status == true) {
-                   $("#shippingAmount").html('৳'+response.shipping);
-                    $("#grandTotal").html('৳'+response.grandTotal);
-                    $("#discount_value").html('-৳'+response.discount);
+                   $("#shippingAmount").html('£'+response.shipping);
+                    $("#grandTotal").html('£'+response.grandTotal);
+                    $("#discount_value").html('-£'+response.discount);
                     $("#discount-response-wrapper").html(response.discountString);
             }else{
                 $("#discount-response-wrapper").html("<span class='text-danger'>"+response.message+"</span>");
@@ -257,9 +257,9 @@ $('body').on('click',"#remove-discount",function(){
         dataType: 'json',
         success: function (response) {
             if (response.status == true) {
-                   $("#shippingAmount").html('৳'+response.shipping);
-                    $("#grandTotal").html('৳'+response.grandTotal);
-                    $("#discount_value").html('-৳'+response.discount);
+                   $("#shippingAmount").html('£'+response.shipping);
+                    $("#grandTotal").html('£'+response.grandTotal);
+                    $("#discount_value").html('-£'+response.discount);
                     $("#discount-response").html('');
                     $("#discount_code").val('');
 

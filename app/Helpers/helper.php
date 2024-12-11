@@ -7,6 +7,7 @@ use App\Models\Logo;
 use App\Models\Order;
 use App\Models\Page;
 use App\Models\ProductImage;
+use App\Models\Social;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Mail;
 
@@ -24,6 +25,10 @@ function getTotalcart() {
 }
 function getLogo() {
     return Logo::all();
+}
+
+function social() {
+    return Social::all();
 }
 
 function staticPages(){

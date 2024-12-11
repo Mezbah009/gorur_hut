@@ -21,6 +21,7 @@ use App\Http\Controllers\admin\ProductReviewController;
 use App\Http\Controllers\admin\ProductVariatonController;
 use App\Http\Controllers\admin\ShippingController;
 use App\Http\Controllers\admin\SettingController;
+use App\Http\Controllers\admin\SocialIconController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\admin\WeightPrice;
@@ -29,6 +30,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ShurjopayControllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +60,7 @@ Route::post('/update-cart', [CartController::class, 'updateCart'])->name('front.
 Route::post('/delete-item', [CartController::class, 'deleteItem'])->name('front.deleteItem.cart');
 Route::get('/checkout', [CartController::class, 'checkout'])->name('front.checkout');
 Route::post('/process-checkout', [CartController::class, 'processCheckout'])->name('front.process.checkout');
+Route::get('/bkashpay', [ShurjopayControllers::class, 'bkash_payment'])->name('front.bkash_payment');
 Route::get('/thanks/{orderId}/', [CartController::class, 'thankyou'])->name('front.thankyou');
 Route::post('/get-order-summery', [CartController::class, 'getOrderSummery'])->name('front.getOrderSummery');
 Route::post('/apply-discount', [CartController::class, 'applyDiscount'])->name('front.applyDiscount');
@@ -66,6 +69,9 @@ Route::get('/page/{slug}', [FrontController::class, 'page'])->name('front.page')
 Route::post('/add-to-wishlist', [FrontController::class, 'addToWishlist'])->name('front.addToWishlist');
 Route::post('/add-to-item-wishlist', [FrontController::class, 'addToItemWishlist'])->name('front.addToItemWishlist');
 Route::post('/send-contact-email', [FrontController::class, 'sendContactEmail'])->name('front.sendContactEmail');
+
+Route::get('/social-icons', [FrontController::class, 'showSocialIcons'])->name('social.icons');
+
 
 //for user registration and login
 Route::group(['prefix' => 'account'], function () {
@@ -255,6 +261,16 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('/variations/{variations}', [ProductVariatonController::class, 'update'])->name('variation.update');
         Route::delete('/variations/{id}', [ProductVariatonController::class, 'destroy'])->name('variation.delete');
 
+        //social icons
+        Route::get('/index', [SocialIconController::class, 'index'])->name('social.index');
+        Route::get('/social/create', [SocialIconController::class, 'create'])->name('social.create');
+        Route::post('/social', [SocialIconController::class, 'store'])->name('social.store');
+        Route::get('/social/{social}/edit', [SocialIconController::class, 'edit'])->name('social.edit');
+        Route::put('/social/{social}', [SocialIconController::class, 'update'])->name('social.update');
+        Route::delete('/social/{social}', [SocialIconController::class, 'destroy'])->name('social.delete');
+
+
+
         Route::get('/getSlug', function (Request $request) {
             $slug = '';
             if (!empty($request->title)) {
@@ -267,3 +283,11 @@ Route::group(['prefix' => 'admin'], function () {
         })->name('getSlug');
     });
 });
+
+Route::post('/shurjopay', [ShurjopayControllers::class, 'send_payment_request_to_shurjopay'])->name('shurjopay.lara');
+// Route::get('/bkashpay',[ShurjopayControllers::class,'bkash_payment'])->name('front.bkash_payment');
+Route::get('/shurjopay/response', [ShurjopayControllers::class, 'invoice'])->name('shurjopay.response');
+// Route::view('/bkashpay','front.bkash')->name('front.bkash_payment');
+
+// Route::post('/shurjopay', 'ShurjopayControllers@send_payment_request_to_shurjopay')-> name('shurjopay.lara');
+Route::get('/paymentUpdate', 'ShurjopayControllers@verify_payment');

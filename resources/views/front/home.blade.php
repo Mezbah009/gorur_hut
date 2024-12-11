@@ -35,7 +35,7 @@
     </section>
 
     <section class="section-2">
-    <div class="ps-site-features">
+    {{-- <div class="ps-site-features">
 		<div class="ps-container">
 			<div class="ps-block--site-features">
 				<div class="ps-block__item">
@@ -45,18 +45,18 @@
 					<div class="ps-block__right">
 						<h4>Fast Shipping</h4>
 						<p>
-                            For minimum order BDT 999Tk
+                            For minimum order GBP 999£
 						</p>
 					</div>
 				</div>
 				<div class="ps-block__item">
 					<div class="ps-block__left">
-                        <img src="{{asset('front-assets/images/pharmacy.png')}}" alt="Icon Alt Text" class="icon-size">
+                        <img src="{{asset('front-assets/images/plug.png')}}" alt="Icon Alt Text" class="icon-size">
 					</div>
 					<div class="ps-block__right">
-						<h4>Pure Health</h4>
+						<h4>Global Tech</h4>
 						<p>
-                            Medicine You Can Trust
+                       Premium electronic products
 						</p>
 					</div>
 				</div>
@@ -95,13 +95,13 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> --}}
 </section>
 
 <section class="section-4 pt-50">
     <div class="ps-container">
         <div class="section-title">
-            <h2>Menu Items</h2>
+            <h2>Breed</h2>
         </div>
         <div class="ps-block__item">
         <div class="row-cat pb-3">
@@ -133,7 +133,7 @@
 <section class="section-4 pt-5">
     <div class="ps-container">
         <div class="section-title">
-            <h2>Trending Items</h2>
+            <h2>Deshi Cow</h2>
         </div>
         <div class="row pb-3">
 
@@ -210,14 +210,14 @@
                                     @php
                                         $item = $featuredProduct->product_items->first();
                                     @endphp
-                                    <span class="h5"><strong>৳{{ $item->price }}</strong></span>
+                                    <span class="h5"><strong>£{{ $item->price }}</strong></span>
                                     @if ($item->compare_price > 0)
-                                        <span class="h6 text-underline"><del>৳{{ $item->compare_price }}</del></span>
+                                        <span class="h6 text-underline"><del>£{{ $item->compare_price }}</del></span>
                                     @endif
                                 @else
-                                    <span class="h5"><strong>৳{{ $featuredProduct->price }}</strong></span>
+                                    <span class="h5"><strong>£{{ $featuredProduct->price }}</strong></span>
                                     @if ($featuredProduct->compare_price > 0)
-                                        <span class="h6 text-underline"><del>৳{{ $featuredProduct->compare_price }}</del></span>
+                                        <span class="h6 text-underline"><del>£{{ $featuredProduct->compare_price }}</del></span>
                                     @endif
                                 @endif
 
@@ -235,7 +235,7 @@
 <section class="section-2">
     <div class="ps-site-features">
         <div class="ps-container">
-            <img src="{{asset('front-assets/images/medicine_shop.png')}}" alt="Icon Alt Text" >
+            <img src="{{asset('front-assets/images/banner.jpg')}}" alt="Icon Alt Text" >
         </div>
     </div>
 </section>
@@ -243,7 +243,7 @@
 <section class="section-4 pt-5">
     <div class="ps-container">
         <div class="section-title">
-            <h2>New Items</h2>
+            <h2>New Cow</h2>
         </div>
         <div class="row pb-3">
             @if ($latestProducts->isNotEmpty())
@@ -321,14 +321,14 @@
                                         @php
                                             $item = $latestProducts->product_items->first();
                                         @endphp
-                                        <span class="h5"><strong>৳{{ $item->price }}</strong></span>
+                                        <span class="h5"><strong>£{{ $item->price }}</strong></span>
                                         @if ($item->compare_price > 0)
-                                            <span class="h6 text-underline"><del>৳{{ $item->compare_price }}</del></span>
+                                            <span class="h6 text-underline"><del>£{{ $item->compare_price }}</del></span>
                                         @endif
                                     @else
-                                        <span class="h5"><strong>৳{{ $latestProducts->price }}</strong></span>
+                                        <span class="h5"><strong>£{{ $latestProducts->price }}</strong></span>
                                         @if ($latestProducts->compare_price > 0)
-                                            <span class="h6 text-underline"><del>৳{{ $latestProducts->compare_price }}</del></span>
+                                            <span class="h6 text-underline"><del>£{{ $latestProducts->compare_price }}</del></span>
                                         @endif
                                     @endif
 
