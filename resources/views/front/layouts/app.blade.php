@@ -51,6 +51,25 @@
 
     <!-- Other head elements -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
+
+
+
+
+      {{-- ----------front-assets-new-- --}}
+
+    <!-- Libraries Stylesheet -->
+ {{-- <link href="{{ asset('front-assets-new/lib/animate/animate.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('front-assets-new/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('front-assets-new/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">  --}}
+     <!-- Customized Bootstrap Stylesheet -->
+     <link href="{{ asset('front-assets-new/css/bootstrap.min.css') }}" rel="stylesheet'>
+
+     <!-- Template Stylesheet -->
+     <link href=" {{ asset('front-assets-new/css/style.css') }}" rel="stylesheet">
+
+
 </head>
 
 <body data-instant-intensity="mousedown">
@@ -88,7 +107,7 @@
                     <form action="{{ route('front.shop') }}" class="w-100">
                         <!-- Added w-100 to make the form width 100% -->
                         <div class="input-group">
-                            <input value="{{ Request::get('search') }}" type="text" placeholder="Search For Products"
+                            <input value="{{ Request::get('search') }}" type="text" placeholder="Search For Cow"
                                 class="form-control" name="search">
                             <button type="submit" class="input-group-text">
                                 <i class="fa fa-search text-white"></i>
@@ -554,6 +573,19 @@ function addToCart(id) {
         });
 
     }
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('front-assets-new/lib/wow/wow.min.js') }}"></script>
+    <script src="{{ asset('front-assets-new/lib/easing/easing.min.js') }}"></script>
+    <script src="{{ asset('front-assets-new/lib/waypoints/waypoints.min.js') }}"></script>
+    <script src="{{ asset('front-assets-new/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src=" {{ asset('front-assets-new/lib/counterup/counterup.min.js') }}"></script>
+    <script src="{{ asset('front-assets-new/lib/parallax/parallax.min.js') }}"></script>
+    <script src="{{ asset('front-assets-new/lib/lightbox/js/lightbox.min.js') }}"></script>
+
+
+    <script src="{{ asset('front-assets-new/js/main.js') }}"></script>
 
 
 

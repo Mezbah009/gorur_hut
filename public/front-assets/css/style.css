@@ -9885,10 +9885,10 @@ main {
     clear: both;
 }
 .section-1 .carousel .carousel-item {
-    height: 520px;
+    height: 640px;
 }
 .section-1 .carousel .carousel-inner {
-    height: 520px;
+    height: 700px;
 }
 .section-1 .carousel .carousel-inner .carousel-caption {
     position: absolute;

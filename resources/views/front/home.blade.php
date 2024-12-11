@@ -98,6 +98,53 @@
 	</div> --}}
 </section>
 
+
+ <!-- About Start -->
+ <div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-end">
+            <div class="col-lg-6">
+                <div class="row g-2">
+                    <div class="col-6 position-relative wow fadeIn" data-wow-delay="0.7s">
+                        <div class="about-experience bg-secondary rounded">
+                            <h1 class="display-1 mb-0">5</h1>
+                            <small class="fs-5 fw-bold">Years Experience</small>
+                        </div>
+                    </div>
+                    <div class="col-6 wow fadeIn" data-wow-delay="0.1s">
+                        <img class="img-fluid rounded" src="{{asset('front-assets-new/img/service-1.jpg')}}">
+                    </div>
+                    <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
+                        <img class="img-fluid rounded" src="{{asset('front-assets-new/img/service-2.jpg')}}">
+                    </div>
+                    <div class="col-6 wow fadeIn" data-wow-delay="0.5s">
+                        <img class="img-fluid rounded" src="{{asset('front-assets-new/img/service-3.jpg')}}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <p class="section-title bg-white text-start text-primary pe-3">About Us</p>
+                <h1 class="mb-4">Know About Our Dairy Farm & Our History</h1>
+                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                <div class="row g-5 pt-2 mb-5">
+                    <div class="col-sm-6">
+                        <img class="img-fluid mb-4" src="img/service.png" alt="">
+                        <h5 class="mb-3">Dedicated Services</h5>
+                        <span>Clita erat ipsum et lorem et sit, sed stet lorem sit clita</span>
+                    </div>
+                    <div class="col-sm-6">
+                        <img class="img-fluid mb-4" src="img/product.png" alt="">
+                        <h5 class="mb-3">Organic Products</h5>
+                        <span>Clita erat ipsum et lorem et sit, sed stet lorem sit clita</span>
+                    </div>
+                </div>
+                <a class="btn btn-secondary rounded-pill py-3 px-5" href="">Explore More</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
 <section class="section-4 pt-50">
     <div class="ps-container">
         <div class="section-title">
@@ -238,6 +285,42 @@
             <img src="{{asset('front-assets/images/banner.jpg')}}" alt="Icon Alt Text" >
         </div>
     </div>
+</section>
+
+
+<section>
+        <!-- Banner Start -->
+        <div class="container-fluid banner my-5 py-5" data-parallax="scroll" data-image-src="{{asset('front-assets-new/img/banner.jpg')}}">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-sm-4">
+                                <img class="img-fluid rounded" src="{{asset('front-assets-new/img/banner-1.jpg')}}" alt="">
+                            </div>
+                            <div class="col-sm-8">
+                                <h2 class="text-white mb-3">We Sell Best Dairy Products</h2>
+                                <p class="text-white mb-4">Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                                <a class="btn btn-secondary rounded-pill py-2 px-4" href="">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-sm-4">
+                                <img class="img-fluid rounded" src="{{asset('front-assets-new/img/banner-2.jpg')}}" alt="">
+                            </div>
+                            <div class="col-sm-8">
+                                <h2 class="text-white mb-3">We Deliver Fresh Mild Worldwide</h2>
+                                <p class="text-white mb-4">Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                                <a class="btn btn-secondary rounded-pill py-2 px-4" href="">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Banner End -->
 </section>
 
 <section class="section-4 pt-5">
