@@ -4,10 +4,10 @@
     <div class="container-fluid my-2">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Brands</h1>
+                <h1>Teeth</h1>
             </div>
             <div class="col-sm-6 text-right">
-                <a href="{{ route('brands.create') }}" class="btn btn-primary">New Brand</a>
+                <a href="{{ route('brands.create') }}" class="btn btn-primary">New Teeth</a>
             </div>
         </div>
     </div>
@@ -83,7 +83,7 @@
                         @else
                         <!-- Handle the case when there are no brands -->
                         <tr>
-                            <td colspan="5">No brands found.</td>
+                            <td colspan="5">No Teeth found.</td>
                         </tr>
                         @endif
                     </tbody>

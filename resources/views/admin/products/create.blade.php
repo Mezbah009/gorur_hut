@@ -4,7 +4,7 @@
         <div class="container-fluid my-2">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Create Product</h1>
+                    <h1>Create Cow</h1>
                 </div>
                 <div class="col-sm-6 text-right">
                     <a href="{{route('products.index')}}" class="btn btn-primary">Back</a>
@@ -87,7 +87,7 @@
                                         <label for="compare_price">Compare at Price</label>
                                         <input type="text" name="compare_price" id="compare_price" class="form-control" placeholder="Compare Price">
                                         <p class="text-muted mt-3">
-                                            To show a reduced price, move the product’s original price into Compare at price. Enter a lower value into Price.
+                                            To show a reduced price, move the Cow original price into Compare at price. Enter a lower value into Price.
                                         </p>
                                     </div>
                                 </div>
@@ -98,7 +98,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <h2 class="h4 mb-3">Product status</h2>
+                                    <h2 class="h4 mb-3">Cow status</h2>
                                     <div class="mb-3">
                                         <select name="status" id="status" class="form-control">
                                             <option value="1">Active</option>
@@ -107,10 +107,10 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                <h2 class="h4 mb-3">Product Brand</h2>
+                                <h2 class="h4 mb-3">Cow Teeth</h2>
                                     <div class="mb-3">
                                         <select name="brand" id="brand" class="form-control">
-                                            <option value="">Select a Brand</option>
+                                            <option value="">Select a Teeth</option>
                                             @if($brands->isNotEmpty())
                                                 @foreach($brands as $brand)
                                                     <option value="{{$brand->id}}">{{$brand->name}}</option>
@@ -120,7 +120,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                <h2 class="h4 mb-3">Featured product</h2>
+                                <h2 class="h4 mb-3">Featured Cow</h2>
                                     <div class="mb-3">
                                         <select name="is_featured" id="is_featured" class="form-control">
                                             <option value="No">No</option>
@@ -133,13 +133,13 @@
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            <h2 class="h4  mb-3">Product category</h2>
+                            <h2 class="h4  mb-3">Cow Breed</h2>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label for="category">Category</label>
+                                        <label for="category">Breed</label>
                                         <select name="category" id="category" class="form-control">
-                                            <option value="">Select a category</option>
+                                            <option value="">Select a Breed</option>
                                             @if($categories->isNotEmpty())
                                                 @foreach($categories as $category)
                                                     <option value="{{$category->id}}">{{$category->name}}</option>
@@ -151,9 +151,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label for="category">Sub category</label>
+                                        <label for="category">Color</label>
                                         <select name="sub_category" id="sub_category" class="form-control">
-                                            <option value="">Select a Sub category</option>
+                                            <option value="">Select a Color</option>
                                         </select>
                                     </div>
                                 </div>
@@ -206,7 +206,7 @@
                             <h2 class="h4 mb-3">Enable Variation</h2>
                             <div class="mb-3">
 
-                               
+
                                     <div class="">
                                         <input checked type="radio" name="payment_method" value="cod" id="payment_method_one">
                                         <label for="payment_method_one" class="form-check-label">No</label>
@@ -217,27 +217,27 @@
                                     </div>
                                     <div class="card-body p-0 d-none" id="card-payment-form">
                                         <div class="mb-3">
-                                            
+
                                             <button type="submit" class="btn btn-primary">Add Variation</button>
-                                            
+
                                         </div>
-                                        
+
                                             {{-- <div class="col-md-6">
                                                 <label for="expiry_date" class="mb-2">Expiry Date</label>
                                                 <input type="text" name="expiry_date" id="expiry_date" placeholder="MM/YYYY" class="form-control">
                                             </div> --}}
-                                            
+
                                     </div>
 
-                               
+
                             </div>
                         </div>
                     </div>
-                  
-               
+
+
                     <div class="card mb-3">
                         <div class="card-body">
-                            <h2 class="h4 mb-3">Related Products</h2>
+                            <h2 class="h4 mb-3">Related Cow</h2>
                             <div class="mb-3">
 
                                 <select multiple class="related-product w-100" name="related_products[]" id="related_products"></select>
@@ -272,7 +272,7 @@
         if($(this).is(":checked") == true){
             $("#card-payment-form").removeClass('d-none')
         }
-    });    
+    });
 
 
  $('.related-product').select2({

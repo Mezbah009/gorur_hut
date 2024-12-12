@@ -5,7 +5,7 @@
 					<div class="container-fluid my-2">
 						<div class="row mb-2">
 							<div class="col-sm-6">
-								<h1>Edit Sub Category</h1>
+								<h1>Edit Color</h1>
 							</div>
 							<div class="col-sm-6 text-right">
 								<a href='{{route("sub-categories.index")}}' class="btn btn-primary">Back</a>
@@ -26,9 +26,9 @@
 								<div class="row">
                                     <div class="col-md-12">
 										<div class="mb-3">
-											<label for="name">Category</label>
+											<label for="name">Breed</label>
 											<select name="category" id="category" class="form-control">
-                                                <option value="">Select a Category</option>
+                                                <option value="">Select a Breed</option>
                                                 @if(!empty($categories))
                                                 @foreach($categories as $category)
 

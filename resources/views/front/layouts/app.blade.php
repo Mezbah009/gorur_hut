@@ -384,7 +384,7 @@
                 </div>
                 <div class="col-md-2">
                     <div class="footer-card">
-                        <h3>Categories</h3>
+                        <h3>Breed</h3>
                         {{-- <ul>
                             <li><a href="#" title="Men's">Men's</a></li>
                             <li><a href="#" title="Women's">Women's</a></li>
@@ -574,18 +574,7 @@ function addToCart(id) {
 
     }
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('front-assets-new/lib/wow/wow.min.js') }}"></script>
-    <script src="{{ asset('front-assets-new/lib/easing/easing.min.js') }}"></script>
-    <script src="{{ asset('front-assets-new/lib/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{ asset('front-assets-new/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-    <script src=" {{ asset('front-assets-new/lib/counterup/counterup.min.js') }}"></script>
-    <script src="{{ asset('front-assets-new/lib/parallax/parallax.min.js') }}"></script>
-    <script src="{{ asset('front-assets-new/lib/lightbox/js/lightbox.min.js') }}"></script>
 
-
-    <script src="{{ asset('front-assets-new/js/main.js') }}"></script>
 
 
 

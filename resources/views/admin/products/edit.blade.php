@@ -4,7 +4,7 @@
         <div class="container-fluid my-2">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Update Product</h1>
+                    <h1>Update Cow</h1>
                 </div>
                 <div class="col-sm-6 text-right">
                     <a href="{{route('products.index')}}" class="btn btn-primary">Back</a>
@@ -150,7 +150,7 @@
                         </div>
                         <div class="card mb-3">
                             <div class="card-body">
-                                <h2 class="h4 mb-3">Related Products</h2>
+                                <h2 class="h4 mb-3">Related Cow</h2>
                                 <div class="mb-3">
 
                                     <select multiple class="related-product w-100" name="related_products[]" id="related_products"></select>
@@ -170,7 +170,7 @@
                     <div class="col-md-4">
                         <div class="card mb-3">
                             <div class="card-body">
-                                <h2 class="h4 mb-3">Product status</h2>
+                                <h2 class="h4 mb-3">Cow status</h2>
                                 <div class="mb-3">
                                     <select name="status" id="status" class="form-control">
                                         <option {{($product->status == '1')? 'selected' : ''}} value="1">Active</option>
@@ -181,11 +181,11 @@
                         </div>
                         <div class="card">
                             <div class="card-body">
-                                <h2 class="h4  mb-3">Product category</h2>
+                                <h2 class="h4  mb-3">Cow Breed</h2>
                                 <div class="mb-3">
-                                    <label for="category">Category</label>
+                                    <label for="category">Breed</label>
                                     <select name="category" id="category" class="form-control">
-                                        <option value="">Select a category</option>
+                                        <option value="">Select a Breed</option>
                                         @if($categories->isNotEmpty())
                                             @foreach($categories as $category)
                                                 <option {{($product->category_id == $category->id)? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
@@ -195,9 +195,9 @@
                                     <p class="error"></p>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="category">Sub category</label>
+                                    <label for="category">Color</label>
                                     <select name="sub_category" id="sub_category" class="form-control">
-                                        <option value="">Select a Sub category</option>
+                                        <option value="">Select a Color</option>
                                         @if($subCategories->isNotEmpty())
                                             @foreach($subCategories as $subCategory)
                                                 <option {{($product->sub_category_id == $subCategory->id)? 'selected' : ''}} value="{{$subCategory->id}}">{{$subCategory->name}}</option>
@@ -210,10 +210,10 @@
                         </div>
                         <div class="card mb-3">
                             <div class="card-body">
-                                <h2 class="h4 mb-3">Product brand</h2>
+                                <h2 class="h4 mb-3"> Teeth</h2>
                                 <div class="mb-3">
                                     <select name="brand" id="brand" class="form-control">
-                                        <option value="">Select a Brand</option>
+                                        <option value="">Select a Teeth</option>
                                         @if($brands->isNotEmpty())
                                             @foreach($brands as $brand)
                                                 <option {{($product->brand_id == $brand->id)? 'selected' : ''}} value="{{$brand->id}}">{{$brand->name}}</option>
@@ -226,7 +226,7 @@
                         </div>
                         <div class="card mb-3">
                             <div class="card-body">
-                                <h2 class="h4 mb-3">Featured product</h2>
+                                <h2 class="h4 mb-3">Featured Cow</h2>
                                 <div class="mb-3">
                                     <select name="is_featured" value="{{$product->is_featured}}" id="is_featured" class="form-control">
                                         <option {{($product->is_featured == 'No')? 'selected' : ''}} value="No">No</option>

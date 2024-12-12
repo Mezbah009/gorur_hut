@@ -35,7 +35,7 @@ class ProductController extends Controller
         return view('admin.products.create',$data);
     }
 
-    public function store(Request $request) { 
+    public function store(Request $request) {
         if($request->payment_method==1){
             $rules = [
                 'title' => 'required',
@@ -46,12 +46,12 @@ class ProductController extends Controller
                 'category' => 'required|numeric',
                 'is_featured' => 'required|in:Yes,No',
             ];
-    
+
             if (!empty($request->track_qty) && $request->track_qty == 'Yes') {
                 $rules['qty'] = 'required|numeric';
             }
             $validator = Validator::make($request->all(), $rules);
-    
+
             if ($validator->passes()) {
                 $product = new Product();
                 $product->title=$request->title;
@@ -73,31 +73,31 @@ class ProductController extends Controller
                 $product->shipping_returns = $request->shipping_returns;
                 $product->related_products = (!empty($request->related_products)) ? implode(',',$request->related_products) : '';
                 $product->save();
-               
+
     //            save gallery pic
                 if (!empty($request->image_array)) {
                     foreach ($request->image_array as $temp_image_id) {
                         $tempImageInfo = TempImage::find($temp_image_id);
                         $extArray = explode('-', $tempImageInfo->name);
                         $ext = last($extArray); //like jpg, png, gif etc
-    
+
                         $productImage = new ProductImage();
                         $productImage->product_id = $product->id;
                         $productImage->image = 'NULL';
                         $productImage->save();
-    
+
                         $imageName = $product->id . '-' . $productImage->id.'-'.time(). '-' . $ext; // Fix the variable name here
-    
+
                         $productImage->image = $imageName;
                         $productImage->save();
-    
+
                         // Move the image from temp to uploads/product
                         $sourcePath = public_path('/temp/' . $tempImageInfo->name);
                         $destPath = public_path('/uploads/product/' . $imageName);
                         if (file_exists($sourcePath)) {
                             rename($sourcePath, $destPath); // Move the file
                         }
-    
+
                         // Generate Product thumbnails
                         // Large Image
                         $sourcePath = public_path('/uploads/product/' . $imageName);
@@ -107,7 +107,7 @@ class ProductController extends Controller
                             $constraint->aspectRatio();
                         });
                         $image->save($destPathLarge);
-    
+
                         // Small Image
                         $destPathSmall = public_path('/uploads/product/small/' . $imageName);
                         $image = Image::make($sourcePath);
@@ -115,14 +115,14 @@ class ProductController extends Controller
                         $image->save($destPathSmall);
                     }
                 }
-    
-                $request->session()->flash('success', 'Products added successfully');
-    
+
+                $request->session()->flash('success', 'Cow added successfully');
+
                 return response()->json([
                     'status' => true,
                     'has_variation'=>1,
                     'product_id'=>$product->id,
-                    'message' => 'Products added successfully'
+                    'message' => 'Cow added successfully'
                 ]);
             } else {
                 return response()->json([
@@ -141,12 +141,12 @@ class ProductController extends Controller
                 'category' => 'required|numeric',
                 'is_featured' => 'required|in:Yes,No',
             ];
-    
+
             if (!empty($request->track_qty) && $request->track_qty == 'Yes') {
                 $rules['qty'] = 'required|numeric';
             }
             $validator = Validator::make($request->all(), $rules);
-    
+
             if ($validator->passes()) {
                 $product = new Product();
                 $product->title=$request->title;
@@ -168,31 +168,31 @@ class ProductController extends Controller
                 $product->shipping_returns = $request->shipping_returns;
                 $product->related_products = (!empty($request->related_products)) ? implode(',',$request->related_products) : '';
                 $product->save();
-               
+
     //            save gallery pic
                 if (!empty($request->image_array)) {
                     foreach ($request->image_array as $temp_image_id) {
                         $tempImageInfo = TempImage::find($temp_image_id);
                         $extArray = explode('-', $tempImageInfo->name);
                         $ext = last($extArray); //like jpg, png, gif etc
-    
+
                         $productImage = new ProductImage();
                         $productImage->product_id = $product->id;
                         $productImage->image = 'NULL';
                         $productImage->save();
-    
+
                         $imageName = $product->id . '-' . $productImage->id.'-'.time(). '-' . $ext; // Fix the variable name here
-    
+
                         $productImage->image = $imageName;
                         $productImage->save();
-    
+
                         // Move the image from temp to uploads/product
                         $sourcePath = public_path('/temp/' . $tempImageInfo->name);
                         $destPath = public_path('/uploads/product/' . $imageName);
                         if (file_exists($sourcePath)) {
                             rename($sourcePath, $destPath); // Move the file
                         }
-    
+
                         // Generate Product thumbnails
                         // Large Image
                         $sourcePath = public_path('/uploads/product/' . $imageName);
@@ -202,7 +202,7 @@ class ProductController extends Controller
                             $constraint->aspectRatio();
                         });
                         $image->save($destPathLarge);
-    
+
                         // Small Image
                         $destPathSmall = public_path('/uploads/product/small/' . $imageName);
                         $image = Image::make($sourcePath);
@@ -210,12 +210,12 @@ class ProductController extends Controller
                         $image->save($destPathSmall);
                     }
                 }
-    
-                $request->session()->flash('success', 'Products added successfully');
-    
+
+                $request->session()->flash('success', 'Cow added successfully');
+
                 return response()->json([
                     'status' => true,
-                    'message' => 'Products added successfully'
+                    'message' => 'Cow added successfully'
                 ]);
             } else {
                 return response()->json([
@@ -224,7 +224,7 @@ class ProductController extends Controller
                 ]);
             }
         }
-       
+
     }
     public function edit($id, Request $request){
         $products = Product::find($id);
@@ -270,7 +270,7 @@ class ProductController extends Controller
         if (!$product) {
             return response()->json([
                 'status' => false,
-                'message' => 'Product not found'
+                'message' => 'Cow not found'
             ]);
         }
 
@@ -320,11 +320,11 @@ class ProductController extends Controller
         $product->save();
 
 
-        $request->session()->flash('success', 'Product updated successfully');
+        $request->session()->flash('success', 'Cow updated successfully');
 
         return response()->json([
             'status' => true,
-            'message' => 'Product updated successfully'
+            'message' => 'Cow updated successfully'
         ]);
     }
 
@@ -333,10 +333,10 @@ class ProductController extends Controller
         $product = Product::find($id);
 
         if (empty($product)) {
-            $request->session()->flash('error', 'Product not found');
+            $request->session()->flash('error', 'Cow not found');
             return response()->json([
                 'status' => false,
-                'message' => 'Product not found'
+                'message' => 'Cow not found'
             ]);
         }
 
@@ -357,7 +357,7 @@ class ProductController extends Controller
         $request->session()->flash('success', 'Product deleted successfully');
         return response()->json([
             'status' => true,
-            'message' => 'Product deleted successfully'
+            'message' => 'Cow deleted successfully'
         ]);
     }
 

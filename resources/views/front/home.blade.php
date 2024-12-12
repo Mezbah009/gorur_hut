@@ -145,7 +145,7 @@
 </div>
 <!-- About End -->
 
-<section class="section-4 pt-50">
+{{-- <section class="section-4 pt-50">
     <div class="ps-container">
         <div class="section-title">
             <h2>Breed</h2>
@@ -175,7 +175,7 @@
         </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 <section class="section-4 pt-5">
     <div class="ps-container">
@@ -257,12 +257,12 @@
                                     @php
                                         $item = $featuredProduct->product_items->first();
                                     @endphp
-                                    <span class="h5"><strong>£{{ $item->price }}</strong></span>
+                                    <span class="h5"><strong>৳{{ $item->price }}</strong></span>
                                     @if ($item->compare_price > 0)
                                         <span class="h6 text-underline"><del>£{{ $item->compare_price }}</del></span>
                                     @endif
                                 @else
-                                    <span class="h5"><strong>£{{ $featuredProduct->price }}</strong></span>
+                                    <span class="h5"><strong>৳{{ $featuredProduct->price }}</strong></span>
                                     @if ($featuredProduct->compare_price > 0)
                                         <span class="h6 text-underline"><del>£{{ $featuredProduct->compare_price }}</del></span>
                                     @endif
@@ -288,7 +288,7 @@
 </section>
 
 
-<section>
+{{-- <section>
         <!-- Banner Start -->
         <div class="container-fluid banner my-5 py-5" data-parallax="scroll" data-image-src="{{asset('front-assets-new/img/banner.jpg')}}">
             <div class="container py-5">
@@ -321,7 +321,7 @@
             </div>
         </div>
         <!-- Banner End -->
-</section>
+</section> --}}
 
 <section class="section-4 pt-5">
     <div class="ps-container">
@@ -404,12 +404,12 @@
                                         @php
                                             $item = $latestProducts->product_items->first();
                                         @endphp
-                                        <span class="h5"><strong>£{{ $item->price }}</strong></span>
+                                        <span class="h5"><strong>৳{{ $item->price }}</strong></span>
                                         @if ($item->compare_price > 0)
                                             <span class="h6 text-underline"><del>£{{ $item->compare_price }}</del></span>
                                         @endif
                                     @else
-                                        <span class="h5"><strong>£{{ $latestProducts->price }}</strong></span>
+                                        <span class="h5"><strong>৳{{ $latestProducts->price }}</strong></span>
                                         @if ($latestProducts->compare_price > 0)
                                             <span class="h6 text-underline"><del>£{{ $latestProducts->compare_price }}</del></span>
                                         @endif
@@ -426,5 +426,71 @@
 
         </div>
     </div>
+</section>
+
+<section>
+
+    <!-- Gallery Start -->
+    <div class="container-xxl py-5 px-0">
+        <div class="row g-0">
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="row g-0">
+                    <div class="col-12">
+                        <a class="d-block" href="{{asset('front-assets-new/img/gallery-5.jpg')}}" data-lightbox="gallery">
+                            <img class="img-fluid" src="{{asset('front-assets-new/img/gallery-5.jpg')}}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <a class="d-block" href="{{asset('front-assets-new/img/gallery-1.jpg')}}" data-lightbox="gallery">
+                            <img class="img-fluid" src="{{asset('front-assets-new/img/gallery-1.jpg')}}" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="row g-0">
+                    <div class="col-12">
+                        <a class="d-block" href="{{asset('front-assets-new/img/gallery-2.jpg')}}" data-lightbox="gallery">
+                            <img class="img-fluid" src="{{asset('front-assets-new/img/gallery-2.jpg')}}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <a class="d-block" href="{{asset('front-assets-new/img/gallery-6.jpg')}}" data-lightbox="gallery">
+                            <img class="img-fluid" src="{{asset('front-assets-new/img/gallery-6.jpg')}}" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="row g-0">
+                    <div class="col-12">
+                        <a class="d-block" href="{{asset('front-assets-new/img/gallery-7.jpg')}}" data-lightbox="gallery">
+                            <img class="img-fluid" src="{{asset('front-assets-new/img/gallery-7.jpg')}}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <a class="d-block" href="{{asset('front-assets-new/img/gallery-3.jpg')}}" data-lightbox="gallery">
+                            <img class="img-fluid" src="{{asset('front-assets-new/img/gallery-3.jpg')}}" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="row g-0">
+                    <div class="col-12">
+                        <a class="d-block" href="{{asset('front-assets-new/img/gallery-4.jpg')}}" data-lightbox="gallery">
+                            <img class="img-fluid" src="{{asset('front-assets-new/img/gallery-4.jpg')}}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <a class="d-block" href="{{asset('front-assets-new/img/gallery-8.jpg')}}" data-lightbox="gallery">
+                            <img class="img-fluid" src="{{asset('front-assets-new/img/gallery-8.jpg')}}" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery End -->
 </section>
 @endsection

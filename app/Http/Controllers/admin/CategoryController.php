@@ -78,7 +78,7 @@ class CategoryController extends Controller
             $category->save();
 
         }
-        $request->session()->flash('success','Category added successfully');
+        $request->session()->flash('success','Breed added successfully');
         return response()->json([
             'status'=>true,
             'messege'=>'Category added successfully'
@@ -123,7 +123,7 @@ class CategoryController extends Controller
             return response()->json([
                 'status' => false,
                 'notFound'=> true,
-                'message' => 'Category not found'
+                'message' => 'Breed not found'
             ]);
         }
 
@@ -173,7 +173,7 @@ class CategoryController extends Controller
         $request->session()->flash('success','Category added successfully');
         return response()->json([
             'status'=>true,
-            'messege'=>'Category added successfully'
+            'messege'=>'Breed added successfully'
         ]);
 
      }
@@ -203,10 +203,10 @@ class CategoryController extends Controller
         File::delete(public_path().'/uploads/category/'.$category->image);
         $category->delete();
 
-        $request->session()->flash('success','Category deleted successfully');
+        $request->session()->flash('success','Breed deleted successfully');
         return response()->json([
             'status'=>true,
-            'message' =>'Category deleted successfully'
+            'message' =>'Breed deleted successfully'
         ]);
 
     }}

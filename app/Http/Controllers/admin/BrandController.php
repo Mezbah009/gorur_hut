@@ -42,11 +42,11 @@ class BrandController extends Controller
             $brands->status=$request->status;
 
             $brands->save();
-            $request->session()->flash('success','Brand added successfully');
+            $request->session()->flash('success','Teeth added successfully');
 
             return response()->json([
                     'status' => true,
-                    'message' => 'Brand created successfully',
+                    'message' => 'Teeth created successfully',
             ]);
 
         } else {
@@ -100,7 +100,7 @@ class BrandController extends Controller
 
             return response()->json([
                     'status' => true,
-                    'message' => 'Brand Updated successfully',
+                    'message' => 'Teeth Updated successfully',
             ]);
 
         } else {
@@ -121,11 +121,11 @@ class BrandController extends Controller
 
         }
         $brand->delete();
-        $request->session()->flash('success','Brand Delete successfully');
+        $request->session()->flash('success','Teeth Delete successfully');
 
         return response()->json([
             'status' => true,
-            'message' => 'Brand Delete successfully',
+            'message' => 'Teeth Delete successfully',
         ]);
 
     }

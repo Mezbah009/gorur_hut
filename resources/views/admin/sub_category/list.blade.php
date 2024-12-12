@@ -1,13 +1,13 @@
 @extends('admin.layouts.app')
 @section('content')
-<section class="content-header">					
+<section class="content-header">
     <div class="container-fluid my-2">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Sub Categories</h1>
+                <h1> Color</h1>
             </div>
             <div class="col-sm-6 text-right">
-                <a href="{{route('sub-categories.create')}}" class="btn btn-primary">New sub Category</a>
+                <a href="{{route('sub-categories.create')}}" class="btn btn-primary">New Color</a>
             </div>
         </div>
     </div>
@@ -28,7 +28,7 @@
                     <div class="card-tools">
                         <div class="input-group input-group" style="width: 250px;">
                             <input type="text" name="keyword"value="{{Request::get('keyword')}}" class="form-control float-right" placeholder="Search">
-        
+
                             <div class="input-group-append">
                               <button type="submit" class="btn btn-default">
                                 <i class="fas fa-search"></i>
@@ -36,17 +36,17 @@
                             </div>
                           </div>
                     </div>
-             
+
             </div>
         </form>
 
-            <div class="card-body table-responsive p-0">								
+            <div class="card-body table-responsive p-0">
                 <table class="table table-hover text-nowrap">
                     <thead>
                         <tr>
                             <th width="60">ID</th>
                             <th>Name</th>
-                            <th>Category</th>
+                            <th>Breed</th>
                             <th>Slug</th>
                             <th width="100">Status</th>
                             <th width="100">Action</th>
@@ -71,7 +71,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                                  @endif
-                                 
+
                             </td>
                             <td>
                                 <a href="{{ route('sub-categories.edit', $subCategory->id)}}">
@@ -90,14 +90,14 @@
                         @endforeach
                         @else
                         @endif
-           
-       
+
+
                     </tbody>
-                </table>										
+                </table>
             </div>
             <div class="card-footer clearfix">
                 {{$subCategories->links()}}
-                
+
             </div>
         </div>
     </div>

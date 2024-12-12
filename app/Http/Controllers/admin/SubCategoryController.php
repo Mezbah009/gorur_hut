@@ -48,11 +48,11 @@ class SubCategoryController extends Controller
 
             $subcategory->save();
 
-            $request->session()->flash('success', 'Sub-category created successfully');
+            $request->session()->flash('success', 'Color created successfully');
 
             return response([
                 'status' => true,
-                'message' => 'Sub-category created successfully',
+                'message' => 'Color created successfully',
             ]);
         } else {
             return response([
@@ -105,7 +105,7 @@ class SubCategoryController extends Controller
 
             return response([
                 'status' => true,
-                'message' => 'Sub-category updated successfully',
+                'message' => 'Color updated successfully',
             ]);
         } else {
             return response([
@@ -125,10 +125,10 @@ class SubCategoryController extends Controller
         }
         $subCategory->delete();
 
-        $request->session()->flash('success', 'Sub-category deleted successfully');
+        $request->session()->flash('success', 'Color deleted successfully');
         return response([
             'status' => true,
-            'message' => 'Sub-category deleted successfully',
+            'message' => 'Color deleted successfully',
         ]);
     }
 }
